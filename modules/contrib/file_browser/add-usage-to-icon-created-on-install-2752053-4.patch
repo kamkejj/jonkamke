@@ -1,0 +1,17 @@
+diff --git a/file_browser.install b/file_browser.install
+index 20a7d00..131a481 100644
+--- a/file_browser.install
++++ b/file_browser.install
+@@ -14,11 +14,13 @@ function file_browser_install() {
+   // Add an icon for File Browser if we aren't installing from configuration.
+   if (!\Drupal::isConfigSyncing()) {
+     $data = file_get_contents(dirname(__FILE__) . '/file_browser_icon.png');
++    /** @var \Drupal\file\FileInterface $file */
+     $file = file_save_data($data, 'public://file_browser_icon.png', FILE_EXISTS_REPLACE);
+     // Set file uuid same as default config.
+     $uuid = (new ExtensionInstallStorage(\Drupal::service('config.storage')))->read('embed.button.file_browser')['icon_uuid'];
+     $file->set('uuid', $uuid);
+     $file->save();
++    \Drupal::service('file.usage')->add($file, 'embed', 'embed_button', 'file_browser');
+   }
+ }
