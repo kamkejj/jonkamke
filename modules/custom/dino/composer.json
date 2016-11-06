@@ -1,0 +1,16 @@
+{
+  "name": "drupal/dino",
+  "type": "drupal-module",
+  "description": "Awesome Dino Module",
+  "keywords": [
+    "Drupal"
+  ],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/dino",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/dino",
+    "source": "http://cgit.drupalcode.org/dino"
+  },
+  "require": {}
+}

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dino.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dino_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dino module.
+    case 'help.page.dino':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Awesome Dino Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}

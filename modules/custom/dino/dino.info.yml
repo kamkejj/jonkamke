@@ -1,0 +1,5 @@
+name: dino
+type: module
+description: Awesome Dino Module
+core: 8.x
+package: Custom

@@ -1,0 +1,7 @@
+parameters:
+  dino.roar_generator_use_cache: true
+
+services:
+  dino.roar_generator:
+    class: Drupal\dino\Service\RoarGenerator
+    arguments: ['@keyvalue', %dino.roar_generator_use_cache%]
