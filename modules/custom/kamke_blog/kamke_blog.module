@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\Component\Utility\Unicode;
+
+/**
+ * Implements hook_user_format_name_alter().
+ */
+function kamke_blog_user_format_name_alter(&$name, $account) {
+  $member = \Drupal\user\Entity\User::load($account->id());
+
+  $displayName = $name;
+  if (!empty($member->field_user_display_name)) {
+    $displayName = Unicode::ucfirst(Unicode::strtolower($member->field_user_display_name->value));
+  }
+
+  $name = t('@username', array('@username' => $displayName));
+}
