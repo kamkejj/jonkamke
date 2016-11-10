@@ -14,11 +14,14 @@
 function kamke_preprocess_page_title(&$variables) {
 
   $node = \Drupal::routeMatch()->getParameter('node');
-  if (empty($node->title->value)) {
-    return;
+  if (!empty($node->title->value)) {
+    if ('Home' === $node->title->value) {
+      $variables['title'] = '';
+    }
   }
 
-  if ('Home' === $node->title->value) {
+  $frontPage = \Drupal::service('path.matcher')->isFrontPage();
+  if ($frontPage) {
     $variables['title'] = '';
   }
 }
