@@ -4,4 +4,21 @@
  * Bootstrap sub-theme.
  *
  * Place your custom PHP code in this file.
+ *
+ * @author Jon Kamke <jon@kamke.org>
  */
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function kamke_preprocess_page_title(&$variables) {
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (empty($node->title->value)) {
+    return;
+  }
+
+  if ('Home' === $node->title->value) {
+    $variables['title'] = '';
+  }
+}
